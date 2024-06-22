@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Box</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Added overflow: hidden to prevent horizontal scrollbar */
+        }
+
+        /* Add styles for the video background */
+        video.background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .box {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transform: scale(2);
+            animation: animate 20s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(-30px);
+            }
+            100% {
+                transform: perspective(1000px) rotateY(360deg) rotateX(0deg) translateY(-30px);
+            }
+        }
+
+        .box span {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);
+            -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004);
+        }
+
+        .box span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        @keyframes spin {
+        from{
+        transform: rotateY(0deg);
+    } 
+    to{
+      transform: rotateY(360deg);
+    }
+  }
+  
+  @keyframes spin {
+    from{
+      transform: rotateY(0deg);
+    } 
+    to{
+      transform: rotateY(360deg);
+    }
+  }
+  @-webkit-keyframes spinRevert {
+    from{
+      transform: rotateY(360deg);
+    } 
+    to{
+      transform: rotateY(0deg);
+    }
+  }
+  @keyframes spinRevert {
+    from{
+      transform: rotateY(360deg);
+    }
+    to{
+      transform: rotateY(0deg);
+    }
+  }
+    </style>
+</head>
+<body>
+    <!-- Add the video element for the background -->
+    <video class="background-video" autoplay muted loop>
+        <source src="./Happy_bi.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="box">
+        <span style="--i:1;"><img src="./arch 7.jpg" alt=""></span>
+        <span style="--i:2;"><img src="./arch1.jpg" alt=""></span>
+        <span style="--i:3;"><img src="./arch2.jpg" alt=""></span>
+        <span style="--i:4;"><img src="./arch3.jpg" alt=""></span>
+        <span style="--i:5;"><img src="./arch4.jpg" alt=""></span>
+        <span style="--i:6;"><img src="./arch5.jpg" alt=""></span>
+        <span style="--i:7;"><img src="./arch6.jpg" alt=""></span>
+        <span style="--i:8;"><img src="./arch8.jpg" alt=""></span>
+        
+    <!-- Text at center of ground -->
+    <p> FROM YOUR BROTHER REETWIK</p>
+    <h1>Happy Birthday Archita singh Rajput My Lovely Sister </h1>
+  </div>
+  
+  <div id="ground"></div>
+    
+ </div>
+    <div id="ground"></div>   
+</div>
+
+<script  src="./script.js"></script>
+</body>
+</html>
